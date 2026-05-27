@@ -2,149 +2,151 @@
 
 ## Project Overview
 
-This project demonstrates fundamental Linux and DevOps skills using a virtual Ubuntu environment. It focuses on automation, system administration, scheduling tasks, and performance monitoring using Bash scripting and native Linux tools.
+This project demonstrates fundamental Linux and DevOps skills using an Ubuntu virtual environment. The lab focuses on automation, system administration, task scheduling, and performance monitoring using Bash scripting and native Linux tools.
 
-The lab simulates real-world DevOps workflows such as server setup automation, scheduled tasks, and continuous system monitoring.
+The project simulates real-world DevOps workflows such as:
 
----
+- Server setup automation
+- Scheduled task execution
+- Continuous system monitoring
+- Performance logging and analysis
+#### Author
 
-## Author
+**Name**: Samuel Adesanya
 
-**Name:** Samuel Adesanya  
-**Course:** DevOps Fundamentals  
-**Environment:** Ubuntu Virtual Machine (Vagrant / VirtualBox)
+**Course**: DevOps Fundamentals
 
----
+**Environment**: Ubuntu Virtual Machine (Vagrant / VirtualBox)
 
 ## Objectives
 
-The main objectives of this lab are to:
+The main objectives of this project are to:
 
 - Compare Linux and Windows for DevOps usage
 - Automate system configuration using Bash scripts
-- Schedule tasks using cron jobs
+- Schedule automated tasks using cron jobs
 - Monitor system performance in real time
 - Log CPU and memory usage
-- Understand background process management
-
----
-
-## Tools & Technologies Used
-
-- :contentReference[oaicite:0]{index=0}  
-- Bash Shell Scripting  
-- cron (job scheduler)  
-- ufw firewall utility  
-- htop system monitoring tool  
-- nohup (background process execution)  
-- Linux commands: top, ps, free, grep, awk  
-
----
-
-## Project Structure
+- Understand Linux background process management
+## Tools and Technologies Used
+- Ubuntu
+- Bash Shell Scripting
+- cron (Job Scheduler)
+- ufw Firewall Utility
+- htop System Monitoring Tool
+- nohup Background Execution Utility
+- Linux commands:
+    - top
+    - ps
+    - free
+    - grep
+    - awk
 ```
+📁 Project Structure
 linux-devops-lab/
 │
-├── setup.sh # Automates system setup
-├── monitor.sh # Monitors system performance
-├── system_metrics.log # Generated log file
-└── README.md # Project documentation
+├── setup.sh              # Automates system setup
+├── monitor.sh            # Monitors system performance
+├── system_metrics.log    # Generated system logs
+└── README.md             # Project documentation
 ```
+### Task 1: Choosing an OS for DevOps Automation
+#### Objective
 
----
-
-## Task 1: Linux vs Windows for DevOps
-
-### Objective
 Compare Linux and Windows operating systems for DevOps automation.
-
-### Key Findings
-
-#### 1. Scripting
-- Linux: Bash scripting (powerful and widely used)
-- Windows: PowerShell (less common in cloud environments)
-
-#### 2. Package Management
-- Linux: apt, yum, dnf
-- Windows: winget, Chocolatey
-
-#### 3. Container Support
-
-Linux supports container tools natively such as:
-
-- :contentReference[oaicite:1]{index=1}  
-- :contentReference[oaicite:2]{index=2}  
-
-Windows requires additional configuration for containers.
-
-#### 4. Automation
-- Linux uses cron jobs and shell scripts
-- Windows uses Task Scheduler
-
-### Conclusion
-Linux is the preferred operating system for DevOps due to its flexibility, lightweight design, strong automation support, and cloud-native compatibility.
-```
-## Task 1: Choosing an OS for DevOps Automation
 
 ### Linux vs Windows for DevOps Automation
 
-DevOps automation depends heavily on scripting flexibility, efficient package management, and robust container support. Both Linux and Windows can be used, but they differ significantly in how well they support modern automation workflows.
+DevOps automation depends heavily on scripting flexibility, package management, and container support. Both Linux and Windows can be used, but they differ significantly in how they support modern automation workflows.
 
----
+### Scripting Abilities
+Linux
 
-### 1. Scripting Abilities
+Linux distributions such as Ubuntu, Debian, and CentOS are built around command-line operations and shell scripting.
 
-Linux (especially distributions like Ubuntu, CentOS, and Debian) is built around powerful command-line tools and scripting languages such as Bash, Python, and Perl. Bash scripting is native and deeply integrated into the system, making it ideal for automating system tasks, deployments, and CI/CD pipelines.
+Linux supports:
 
-Windows, on the other hand, relies on PowerShell for automation. PowerShell is powerful and object-oriented, but many DevOps tools and scripts in the industry are originally designed for Unix-like environments. While Windows Subsystem for Linux (WSL) improves compatibility, it still adds an extra layer rather than native support.
+- Bash scripting
+- Python automation
+- Perl scripting
 
-**Advantage: Linux**
+Bash scripting is deeply integrated into Linux systems, making automation efficient and lightweight.
 
----
+#### Windows
 
-### 2. Package Management
+Windows primarily uses PowerShell for automation.
 
-Linux has mature and efficient package managers such as `apt` (Debian/Ubuntu), `yum/dnf` (RHEL-based systems), and `pacman` (Arch Linux). These tools allow fast, scriptable installation and updates of software, making automation straightforward in CI/CD pipelines.
+Although PowerShell is powerful, many DevOps tools and CI/CD workflows are designed primarily for Unix-like systems.
 
-Windows uses tools like Chocolatey and Winget, but they are less standardized across environments. Dependency handling and scripting integration are improving but still not as seamless or widely adopted in enterprise DevOps workflows.
+##### Advantage: Linux
+### Package Management
+Linux
 
-**Advantage: Linux**
+Linux provides mature package managers such as:
 
----
+- apt
+- yum
+- dnf
 
-### 3. Container Compatibility
+These tools simplify:
 
-Modern DevOps relies heavily on containerization technologies such as Docker and orchestration tools like Kubernetes.
+- software installation
+- updates
+- dependency management
+- automation
+##### Windows
 
-Linux is the native environment for Docker containers. Most container images are Linux-based, and container performance is optimized on Linux kernels. Kubernetes clusters are also most commonly deployed on Linux nodes.
+Windows uses:
 
-Windows supports containers as well, but primarily for Windows-based applications. It also depends on Linux VMs to run most container workloads, which adds overhead.
+- Chocolatey
+- Winget
 
-**Advantage: Linux**
+These tools are improving but are less standardized across DevOps environments.
 
----
+##### Advantage: Linux
+### Container Compatibility
 
-### 4. Overall System Integration
+Modern DevOps heavily depends on container technologies.
 
-Linux is designed as a multi-user, server-oriented operating system with strong networking, permissions control, and automation-friendly architecture. It integrates naturally into cloud environments (AWS, Azure, GCP) and is the dominant OS in server infrastructure.
+Linux provides native support for:
 
-Windows (Microsoft Windows), while strong in desktop and enterprise GUI environments, is less optimized for headless server automation without additional configuration layers.
+- Docker
+- Kubernetes
 
----
+Most container images are Linux-based and optimized for Linux kernels.
 
-### Conclusion
+Windows supports containers but often requires additional virtualization layers.
 
-Overall, Linux is the better operating system for DevOps automation. It provides:
+##### Advantage: Linux
+### Automation and Cloud Integration
 
-* Native and efficient scripting support (especially Bash and Python)
-* Mature and consistent package management systems
-* First-class support for Docker and Kubernetes ecosystems
-* Strong compatibility with cloud and server environments
+Linux is widely used in:
 
-Windows is improving, especially with PowerShell and WSL, but it is still more complex and less standardized for automation-heavy DevOps workflows.
+- cloud servers
+- DevOps pipelines
+- CI/CD systems
+- enterprise infrastructure
 
-For these reasons, Linux remains the industry standard and preferred OS for DevOps engineers focused on automation, scalability, and containerized systems.
-```
+Linux integrates naturally with:
+
+- AWS
+- Azure
+- Google Cloud
+
+Windows is more common in desktop and enterprise GUI environments.
+
+##### Advantage: Linux
+### Conclusion for Task 1
+
+Linux is the preferred operating system for DevOps because it provides:
+
+- Strong scripting capabilities
+- Efficient package management
+- Native container support
+- Lightweight server performance
+- Excellent cloud compatibility
+
+For these reasons, Linux remains the industry standard for DevOps automation.
 ---
 
 ## Task 2: System Automation with Bash Script
